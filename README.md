@@ -1,24 +1,47 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column              | Type   | Options                  |
+| ------------------- | ------ | ------------------------ |
+| nickname            | string | null: false              |
+| email               | string | null: false, unique:true |
+| encrypted_password  | string | null: false              |
+| family_name         | string | null: false              |
+| first_name          | string | null: false              |
+| family_name_kana    | string | null: false              |
+| first_name_kana     | string | null: false              |
+| birth_day           | date   | null: false              |
 
-* Ruby version
+### Asociation
+- has_many :products
+- has_one :purcheses
 
-* System dependencies
+## products テーブル
+| Column                   | Type    | Options                  |
+| ------------------------ | ------- | ------------------------ |
+| product_name             | string  | null: false              |
+| description              | text    | null: false              |
+| category_genre_id        | integer | null: false              |
+| condition_genre_id       | integer | null: false              |
+| delivery_charge_genre_id | integer | null: false              |
+| prefectures_genre_id     | integer | null: false              |
+| days_to_ship_genre_id    | integer | null: false              |
+| price                    | integer | null: false              |
 
-* Configuration
+### Asociation
+- belongs_to :user
 
-* Database creation
+## purchasesテーブル
+| Column               | Type      | Options                      |
+| -------------------- | --------- | ---------------------------- |
+| user                 | reference | null: falseforeign_key: true |
+| postal_code          | string    | null: false                  |
+| prefectures_genre_id | integer   | null: false                  |
+| municipalities       | string    | null: false                  |
+| address              | string    | null: false                  |
+| building             | string    |                              |
+| phone_number         | string    | null: false                  |
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Asociation
+- belongs_to :user
