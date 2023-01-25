@@ -16,26 +16,29 @@
 ### Asociation
 - has_many :products
 - has_one :purcheses
+- has_one :orders
 
 ## products テーブル
-| Column                   | Type    | Options                  |
-| ------------------------ | ------- | ------------------------ |
-| product_name             | string  | null: false              |
-| description              | text    | null: false              |
-| category_genre_id        | integer | null: false              |
-| condition_genre_id       | integer | null: false              |
-| delivery_charge_genre_id | integer | null: false              |
-| prefectures_genre_id     | integer | null: false              |
-| days_to_ship_genre_id    | integer | null: false              |
-| price                    | integer | null: false              |
+| Column                   | Type       | Options                        |
+| ------------------------ | ---------- | ------------------------------ |
+| user                     | references | null: false, foreign_key: true |
+| product_name             | string     | null: false                    |
+| description              | text       | null: false                    |
+| category_genre_id        | integer    | null: false                    |
+| condition_genre_id       | integer    | null: false                    |
+| delivery_charge_genre_id | integer    | null: false                    |
+| prefectures_genre_id     | integer    | null: false                    |
+| days_to_ship_genre_id    | integer    | null: false                    |
+| price                    | integer    | null: false                    |
 
 ### Asociation
 - belongs_to :user
+- has_one :orders
 
 ## purchasesテーブル
 | Column               | Type      | Options                      |
 | -------------------- | --------- | ---------------------------- |
-| user                 | reference | null: falseforeign_key: true |
+| user                 | reference | null: false                  |
 | postal_code          | string    | null: false                  |
 | prefectures_genre_id | integer   | null: false                  |
 | municipalities       | string    | null: false                  |
@@ -45,3 +48,15 @@
 
 ### Asociation
 - belongs_to :user
+- has_one :orders
+
+## ordersテーブル
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| user_id    | references | null: false, foreign_key: true |
+| product_id | references | null: false, foreign_key: true |
+
+### Asociation
+- belongs_to :user
+- belongs_to :product
+- belongs_to :purchase
