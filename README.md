@@ -35,14 +35,15 @@
 - has_one :order
 
 ## purchasesテーブル
-| Column               | Type      | Options                      |
-| -------------------- | --------- | ---------------------------- |
-| postal_code          | string    | null: false                  |
-| prefectures_genre_id | integer   | null: false                  |
-| municipalities       | string    | null: false                  |
-| address              | string    | null: false                  |
-| building             | string    |                              |
-| phone_number         | string    | null: false                  |
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| order                | references | null: false, foreign_key: true |
+| postal_code          | string     | null: false                    |
+| prefectures_genre_id | integer    | null: false                    |
+| municipalities       | string     | null: false                    |
+| address              | string     | null: false                    |
+| building             | string     |                                |
+| phone_number         | string     | null: false                    |
 
 ### Asociation
 - belongs_to :order
