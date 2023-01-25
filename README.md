@@ -37,7 +37,6 @@
 ## purchasesテーブル
 | Column               | Type      | Options                      |
 | -------------------- | --------- | ---------------------------- |
-| user                 | reference | null: false                  |
 | postal_code          | string    | null: false                  |
 | prefectures_genre_id | integer   | null: false                  |
 | municipalities       | string    | null: false                  |
