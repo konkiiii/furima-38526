@@ -15,8 +15,7 @@
 
 ### Asociation
 - has_many :products
-- has_one :purcheses
-- has_one :orders
+- has_many :orders
 
 ## products テーブル
 | Column                   | Type       | Options                        |
@@ -33,7 +32,7 @@
 
 ### Asociation
 - belongs_to :user
-- has_one :orders
+- has_one :order
 
 ## purchasesテーブル
 | Column               | Type      | Options                      |
@@ -47,16 +46,15 @@
 | phone_number         | string    | null: false                  |
 
 ### Asociation
-- belongs_to :user
-- has_one :orders
+- belongs_to :order
 
 ## ordersテーブル
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| user_id    | references | null: false, foreign_key: true |
-| product_id | references | null: false, foreign_key: true |
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| product | references | null: false, foreign_key: true |
 
 ### Asociation
 - belongs_to :user
 - belongs_to :product
-- belongs_to :purchase
+- has_one :purchase
