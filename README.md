@@ -1,24 +1,60 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column              | Type   | Options                  |
+| ------------------- | ------ | ------------------------ |
+| nickname            | string | null: false              |
+| email               | string | null: false, unique:true |
+| encrypted_password  | string | null: false              |
+| family_name         | string | null: false              |
+| first_name          | string | null: false              |
+| family_name_kana    | string | null: false              |
+| first_name_kana     | string | null: false              |
+| birth_day           | date   | null: false              |
 
-* Ruby version
+### Asociation
+- has_many :products
+- has_many :orders
 
-* System dependencies
+## products テーブル
+| Column                   | Type       | Options                        |
+| ------------------------ | ---------- | ------------------------------ |
+| user                     | references | null: false, foreign_key: true |
+| product_name             | string     | null: false                    |
+| description              | text       | null: false                    |
+| category_genre_id        | integer    | null: false                    |
+| condition_genre_id       | integer    | null: false                    |
+| delivery_charge_genre_id | integer    | null: false                    |
+| prefectures_genre_id     | integer    | null: false                    |
+| days_to_ship_genre_id    | integer    | null: false                    |
+| price                    | integer    | null: false                    |
 
-* Configuration
+### Asociation
+- belongs_to :user
+- has_one :order
 
-* Database creation
+## purchasesテーブル
+| Column               | Type       | Options                        |
+| -------------------- | ---------- | ------------------------------ |
+| order                | references | null: false, foreign_key: true |
+| postal_code          | string     | null: false                    |
+| prefectures_genre_id | integer    | null: false                    |
+| municipalities       | string     | null: false                    |
+| address              | string     | null: false                    |
+| building             | string     |                                |
+| phone_number         | string     | null: false                    |
 
-* Database initialization
+### Asociation
+- belongs_to :order
 
-* How to run the test suite
+## ordersテーブル
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| user    | references | null: false, foreign_key: true |
+| product | references | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Asociation
+- belongs_to :user
+- belongs_to :product
+- has_one :purchase
