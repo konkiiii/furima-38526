@@ -1,3 +1,9 @@
 ・form_with
 https://ymiyashitablog.com/rails-form_with/#labeltext_fieldtext_areasubmit
 
+・エラー
+https://teratail.com/questions/247009
+→application_controller.rbの
+正)devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, 
+が
+誤)devise_parameter_sanitizer.permit(:sign_up, keys: [:name, になっていた 
