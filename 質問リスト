@@ -1,6 +1,7 @@
 1.
 <%= f.text_area :hoge, class:"input-name", id:"last-name", placeholder:"例) 山田" %>
 ここのhogeはDBのカラム名で間違いないか?
+→OK
 
 2.
 <% f.text_area >と<% form.text_area %>は同じ意味？ 
