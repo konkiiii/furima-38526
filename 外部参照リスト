@@ -7,3 +7,7 @@ https://teratail.com/questions/247009
 正)devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, 
 が
 誤)devise_parameter_sanitizer.permit(:sign_up, keys: [:name, になっていた 
+
+・ログイン時にinvaild eroor
+ビューファイルをきちんとしていなかった(hogeのまま)
+https://teratail.com/questions/302730
