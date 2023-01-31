@@ -1,0 +1,22 @@
+・form_with
+https://ymiyashitablog.com/rails-form_with/#labeltext_fieldtext_areasubmit
+
+・エラー
+https://teratail.com/questions/247009
+→application_controller.rbの
+正)devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, 
+が
+誤)devise_parameter_sanitizer.permit(:sign_up, keys: [:name, になっていた 
+
+・ログイン時にinvaild eroor
+ビューファイルをきちんとしていなかった(hogeのまま)
+https://teratail.com/questions/302730
+
+・バリデーションとエラーメッセージ
+https://techtechmedia.com/error-messages-validation-rails/
+
+・バリデーション正規表現
+https://gist.github.com/nashirox/38323d5b51063ede1d41
+https://qiita.com/yait/items/8a28a56bc584780b8d8a
+
+https://teratail.com/questions/308497
