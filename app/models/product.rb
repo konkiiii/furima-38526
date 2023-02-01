@@ -15,4 +15,13 @@ class Product < ApplicationRecord
     validates :days_to_ship_genre_id
   end
   # この書き方でダメな場合は修正(1つずつ記述に変更)
+
+  belongs_to :user
+
+  with_options presence:true do
+    validates :user
+    validates :product_name
+    validates :descriotion
+    validates :price
+  end
 end
