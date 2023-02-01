@@ -1,4 +1,4 @@
-class Genre < ActiveHash::Base
+class CategoryGenre < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: 'メンズ' },
@@ -17,3 +17,4 @@ class Genre < ActiveHash::Base
   has_many :products
   
   end
+  
