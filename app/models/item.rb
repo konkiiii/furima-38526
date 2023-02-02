@@ -1,4 +1,4 @@
-class Product < ApplicationRecord
+class Item < ApplicationRecord
   has_one_attached :image
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category_genre_id
@@ -23,5 +23,4 @@ class Product < ApplicationRecord
     validates :product_name
     validates :descriotion
     validates :price
-  end
 end

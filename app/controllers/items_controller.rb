@@ -2,6 +2,6 @@ class ItemsController < ApplicationController
   def index
   end
   def new
-    @product = Product.new
+    @item = Item.new
   end
 end
