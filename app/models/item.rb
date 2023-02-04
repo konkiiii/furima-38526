@@ -23,5 +23,6 @@ class Item < ApplicationRecord
     validates :product_name
     validates :description
     validates :price
+    validates :image
   end
 end
