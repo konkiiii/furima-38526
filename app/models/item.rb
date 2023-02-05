@@ -20,9 +20,9 @@ class Item < ApplicationRecord
 
   with_options presence:true do
     validates :user
-    validates :product_name
-    validates :description
-    validates :price
+    validates :product_name, length: {maximum:40}
+    validates :description, length: {maximum:1000}
+    validates :price, numericality: { greater_than_or_equal_to: 299, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' },format: { with: /\A[0-9]+\z/, message: 'is invalid. Input half-width characters' }
     validates :image
   end
 end
