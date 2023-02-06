@@ -67,7 +67,6 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Price is out of setting range")
       end
       it '価格が10M円以上だと商品が出品できない' do
-        # binding.pry
         @item.price = 1999999999
         @item.valid?
         expect(@item.errors.full_messages).to include("Price is out of setting range")
