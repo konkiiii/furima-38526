@@ -15,13 +15,15 @@ class Item < ApplicationRecord
     validates :prefectures_genre_id
     validates :days_to_ship_genre_id
   end
-  
+
   belongs_to :user
 
-  with_options presence:true do
-    validates :product_name, length: {maximum:40}
-    validates :description, length: {maximum:1000}
-    validates :price, numericality: { greater_than_or_equal_to: 299, less_than_or_equal_to: 9_999_999, message: 'is out of setting range', only_integer: true }
+  with_options presence: true do
+    validates :product_name, length: { maximum: 40 }
+    validates :description, length: { maximum: 1000 }
+    validates :price,
+              numericality: { greater_than_or_equal_to: 299, less_than_or_equal_to: 9_999_999, message: 'is out of setting range',
+                              only_integer: true }
     validates :image
   end
 end
