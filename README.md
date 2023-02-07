@@ -14,10 +14,10 @@
 | birth_day           | date   | null: false              |
 
 ### Asociation
-- has_many :products
+- has_many :products→items
 - has_many :orders
 
-## products テーブル
+## items テーブル
 | Column                   | Type       | Options                        |
 | ------------------------ | ---------- | ------------------------------ |
 | user                     | references | null: false, foreign_key: true |
@@ -56,5 +56,5 @@
 
 ### Asociation
 - belongs_to :user
-- belongs_to :product
+- belongs_to :product→items
 - has_one :purchase
