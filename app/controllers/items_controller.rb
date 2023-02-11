@@ -24,14 +24,15 @@ class ItemsController < ApplicationController
   
   def edit
     @item = Item.find(params[:id])
+    redirect_to root_path unless current_user == @item.user
   end
   
   def update
-    item = Item.find(params[:id])
-    if item.update(item_params)
-      redirect_to item_path(item.id)
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path(@item.id)
     else
-      render :edit
+      render 'edit'
     end
   end
 
@@ -41,4 +42,5 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:image, :product_name, :description, :category_genre_id, :condition_genre_id,
                                  :delivery_charge_genre_id, :prefectures_genre_id, :days_to_ship_genre_id, :price).merge(user_id: current_user.id)
   end
+
 end
