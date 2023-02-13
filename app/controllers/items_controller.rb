@@ -36,9 +36,11 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
-      redirect_to root_path
-    elsif !user_signed_in?
-      redirect_to action: :index
+      unless current_user != @item.user
+        redirect_to root_path 
+      end
+    else
+      render 'edit'
     end
   end
 
