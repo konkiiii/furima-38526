@@ -56,5 +56,5 @@
 
 ### Asociation
 - belongs_to :user
-- belongs_to :product→items
+- belongs_to :product→item
 - has_one :purchase

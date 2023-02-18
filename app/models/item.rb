@@ -17,6 +17,7 @@ class Item < ApplicationRecord
   end
 
   belongs_to :user
+  has_one :order
 
   with_options presence: true do
     validates :product_name, length: { maximum: 40 }
