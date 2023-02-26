@@ -10,6 +10,6 @@ class OrderPurchase
   end
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
-    Purchase.create(postal_code: postal_code, prefectures_genre_id: prefectures_genre_id, municipalities: municipalities, address: address, building: building, phone_number: phone_number)
+    Purchase.create(postal_code: postal_code, prefectures_genre_id: prefectures_genre_id, municipalities: municipalities, address: address, building: building, phone_number: phone_number, order_id: order.id)
   end
 end
