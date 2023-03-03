@@ -1,10 +1,18 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!
   def index
-    @order = Order.new
-    @orders = Item.includes(:user).order('created_at DESC')
     @item = Item.find(params[:item_id])
-    @order_purchase = OrderPurchase.new
+    if current_user.id != @item.user_id
+      if !@item.order.present?
+        @order = Order.new
+        @orders = Item.includes(:user).order('created_at DESC')
+        @order_purchase = OrderPurchase.new
+      else
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def create
