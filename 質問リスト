@@ -5,3 +5,5 @@
 
 2.
 <% f.text_area >と<% form.text_area %>は同じ意味？ 
+
+3.クレカの情報入力はform_withを使わない
