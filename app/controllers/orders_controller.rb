@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_item
   def index
-    @item = Item.find(params[:item_id])
     if current_user.id != @item.user_id
       if !@item.order.present?
         @order = Order.new
@@ -17,7 +17,6 @@ class OrdersController < ApplicationController
 
   def create
     @order_purchase = OrderPurchase.new(order_params)
-    @item = Item.find(params[:item_id])
     if @order_purchase.valid?
       pay_item
       @order_purchase.save
@@ -26,8 +25,11 @@ class OrdersController < ApplicationController
       render :index
     end
   end
-
+  
   private
+  def set_item
+    @item = Item.find(params[:item_id])
+  end
 
   def pay_item
     Payjp.api_key = Payjp.api_key = ENV['PAYJP_SECRET_KEY']
