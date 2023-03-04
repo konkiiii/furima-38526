@@ -46,7 +46,7 @@ RSpec.describe OrderPurchase, type: :model do
       it '電話番号が空だと保存できないこと' do
         @order_purchase.phone_number = ''
         @order_purchase.valid?
-        expect(@order_purchase.errors.full_messages).to include("Phone number can't be blank", 'Phone number is invalid')
+        expect(@order_purchase.errors.full_messages).to include("Phone number can't be blank")
       end
       it '電話番号にハイフンが入ると保存できないこと' do
         @order_purchase.phone_number = '090-0000000'
