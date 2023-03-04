@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
   def create
     @order_purchase = OrderPurchase.new(order_params)
     if @order_purchase.valid?
@@ -20,12 +20,13 @@ class OrdersController < ApplicationController
       render :index
     end
   end
-  
+
   private
+
   def set_item
     @item = Item.find(params[:item_id])
   end
-  
+
   def different_user
     if current_user.id != @item.user_id
     else
